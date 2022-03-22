@@ -11,7 +11,7 @@
         <p>Product type: ${product.title}</p>
         <hr>
             <ul>
-               <!-- <% if (((Product)request.getAttribute("product")).getProducts() != null) %> -->
+                <% if (((Product)request.getAttribute("product")).getProducts() != null) %>
                 <% for (Product product : (List<Product>) ((Product)request.getAttribute("product")).getProducts()) { %>
                 <li> title: <%=product.getTitle()%>;    cost: <%=product.getCost()%>; product id: <%=product.getId()%> </li>
                 <% } %>
