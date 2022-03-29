@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="phone" class="ru.alexanna.Product">
+        <constructor-arg value="111" />
+        <constructor-arg value="Best Phone" />
+        <constructor-arg value="100" />
+    </bean>
+
+    <bean id="tv" class="ru.alexanna.Product">
+        <constructor-arg value="222" />
+        <constructor-arg value="Best TV" />
+        <constructor-arg value="300" />
+    </bean>
+
+    <bean id="toothbrush" class="ru.alexanna.Product">
+        <constructor-arg value="333" />
+        <constructor-arg value="Best Toothbrush" />
+        <constructor-arg value="70" />
+    </bean>
+
+    <bean id="pen" class="ru.alexanna.Product">
+        <constructor-arg value="444" />
+        <constructor-arg value="Best Pen" />
+        <constructor-arg value="80" />
+    </bean>
+
+    <bean id="paper" class="ru.alexanna.Product">
+        <constructor-arg value="555" />
+        <constructor-arg value="Best White Paper" />
+        <constructor-arg value="15" />
+    </bean>
+
+    <bean id="repository" class="ru.alexanna.ProductRepository">
+        <property name="productList">
+            <list>
+                <ref bean="paper" />
+                <ref bean="phone" />
+                <ref bean="pen" />
+                <ref bean="toothbrush" />
+                <ref bean="tv" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="cart" class="ru.alexanna.Cart" scope="prototype">
+        <constructor-arg ref="repository" />
+    </bean>
+
+</beans>
